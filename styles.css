@@ -1,0 +1,275 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: #111;
+}
+
+/* Container */
+.container {
+    background: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.3s ease-in-out;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container:hover {
+    transform: scale(1.05);
+}
+
+/* Title */
+h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    animation: titleFadeIn 1s ease-out;
+}
+
+@keyframes titleFadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Score Container */
+.score-container {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#score {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    background: #444;
+    border-radius: 6px;
+    padding: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+#score:hover {
+    background: #555;
+}
+
+/* Progress Bar Container */
+.progress-container {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Progress Bar */
+.progress-bar {
+    height: 20px;
+    width: 100%;
+    background: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(110, 69, 226, 0.8);
+    position: relative;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    margin-top: 10px;
+}
+
+/* Neon Effect on Progress Bar */
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(45deg, #6e45e2, #a48cff);
+    border-radius: 10px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 15px rgba(110, 69, 226, 0.7), 0 0 30px rgba(110, 69, 226, 0.5);
+}
+
+/* Neon Glow Effect on Progress Text */
+#progressText {
+    margin-top: 5px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+    text-shadow: 0 0 5px #6e45e2, 0 0 10px #6e45e2, 0 0 15px #6e45e2;
+}
+
+/* Input and Button Container */
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    animation: inputContainerFadeIn 1s ease-out;
+}
+
+@keyframes inputContainerFadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Input Field */
+input[type="text"] {
+    width: calc(100% - 90px);
+    padding: 12px;
+    border: 2px solid #333;
+    border-radius: 6px;
+    margin-right: 10px;
+    outline: none;
+    font-size: 16px;
+    background: #222;
+    color: #fff;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #6e45e2;
+    box-shadow: 0 0 8px rgba(110, 69, 226, 0.5);
+    transform: scale(1.02);
+}
+
+/* Add Task Button */
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #6e45e2;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #5940c8;
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #4731a0;
+    transform: translateY(0);
+}
+
+/* Task List */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Task Item */
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    padding: 12px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+li:hover {
+    background-color: #444;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Completed Task */
+li.completed {
+    text-decoration: line-through;
+    color: #888;
+    background-color: #222;
+}
+
+/* Custom Checkbox */
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #444;
+    border-radius: 4px;
+    border: 2px solid #555;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #6e45e2;
+    border-color: #6e45e2;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '✔';
+    color: #fff;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+input[type="checkbox"]:checked::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(110, 69, 226, 0.2);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+input[type="checkbox"]:checked:active::before {
+    transform: scale(1);
+}
+
+/* Remove Button */
+.remove-btn {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.remove-btn:active {
+    background-color: #a71d2a;
+    transform: translateY(0);
+}
